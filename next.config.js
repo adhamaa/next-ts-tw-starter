@@ -2,16 +2,18 @@
 module.exports = {
   eslint: {
     dirs: ['src'],
+    ignoreDuringBuilds: true,
   },
 
   reactStrictMode: true,
 
   // Uncoment to add domain whitelist
-  // images: {
-  //   domains: [
-  //     'res.cloudinary.com',
-  //   ],
-  // },
+  images: {
+    loader: 'custom',
+    // domains: [
+    //   'res.cloudinary.com',
+    // ],
+  },
 
   // SVGR
   webpack(config) {

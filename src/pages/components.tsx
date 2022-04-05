@@ -298,9 +298,10 @@ export default function ComponentsPage() {
                 </p>
                 <NextImage
                   className='mt-8'
-                  src='/favicon/apple-icon-180x180.png'
-                  width='180'
-                  height='180'
+                  src='https://images.unsplash.com/photo-1649077991904-14a698bd68c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+                  width='450'
+                  height='450'
+                  objectFit='cover'
                   alt='Icon'
                 />
               </li>
