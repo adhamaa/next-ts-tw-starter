@@ -23,25 +23,9 @@ Router.events.on('routeChangeError', nProgress.done);
 Router.events.on('routeChangeComplete', nProgress.done);
 
 function MyApp({ Component, pageProps }) {
-  // React.useEffect(() => {
-  //   const handleRouteStart = () => nProgress.start();
-  //   const handleRouteDone = () => nProgress.done();
-
-  //   Router.events.on('routeChangeStart', handleRouteStart);
-  //   Router.events.on('routeChangeComplete', handleRouteDone);
-  //   Router.events.on('routeChangeError', handleRouteDone);
-
-  //   return () => {
-  //     // Make sure to remove the event handler on unmount!
-  //     Router.events.off('routeChangeStart', handleRouteStart);
-  //     Router.events.off('routeChangeComplete', handleRouteDone);
-  //     Router.events.off('routeChangeError', handleRouteDone);
-  //   };
-  // }, []);
   return (
     <>
       <DismissableToast />
-
       <SWRConfig
         value={{
           fetcher: (url) => axiosClient.get(url).then((res) => res.data),
