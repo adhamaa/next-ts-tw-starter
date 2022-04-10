@@ -17,27 +17,27 @@ import DismissableToast from '@/components/DismissableToast';
  * ? `Layout` component is called in every page using `np` snippets. If you have consistent layout across all page, you can add it here too
  */
 
-// // EXPANSION CHANGES: 3 lines below
-// Router.events.on('routeChangeStart', nProgress.start);
-// Router.events.on('routeChangeError', nProgress.done);
-// Router.events.on('routeChangeComplete', nProgress.done);
+// EXPANSION CHANGES: 3 lines below
+Router.events.on('routeChangeStart', nProgress.start);
+Router.events.on('routeChangeError', nProgress.done);
+Router.events.on('routeChangeComplete', nProgress.done);
 
 function MyApp({ Component, pageProps }) {
-  React.useEffect(() => {
-    const handleRouteStart = () => nProgress.start();
-    const handleRouteDone = () => nProgress.done();
+  // React.useEffect(() => {
+  //   const handleRouteStart = () => nProgress.start();
+  //   const handleRouteDone = () => nProgress.done();
 
-    Router.events.on('routeChangeStart', handleRouteStart);
-    Router.events.on('routeChangeComplete', handleRouteDone);
-    Router.events.on('routeChangeError', handleRouteDone);
+  //   Router.events.on('routeChangeStart', handleRouteStart);
+  //   Router.events.on('routeChangeComplete', handleRouteDone);
+  //   Router.events.on('routeChangeError', handleRouteDone);
 
-    return () => {
-      // Make sure to remove the event handler on unmount!
-      Router.events.off('routeChangeStart', handleRouteStart);
-      Router.events.off('routeChangeComplete', handleRouteDone);
-      Router.events.off('routeChangeError', handleRouteDone);
-    };
-  }, []);
+  //   return () => {
+  //     // Make sure to remove the event handler on unmount!
+  //     Router.events.off('routeChangeStart', handleRouteStart);
+  //     Router.events.off('routeChangeComplete', handleRouteDone);
+  //     Router.events.off('routeChangeError', handleRouteDone);
+  //   };
+  // }, []);
   return (
     <>
       <DismissableToast />
