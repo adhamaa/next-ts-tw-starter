@@ -23,11 +23,10 @@ import Vercel from '~/svg/Vercel.svg';
 export default function HomePage() {
   return (
     <Layout>
-      {/* <Seo templateTitle='Home' /> */}
-      <Seo />
+      <Seo templateTitle='Home' />
 
       <main>
-        <section className='bg-white'>
+        <section className='bg-white dark:bg-slate-900'>
           <div className='layout flex min-h-screen flex-col items-center justify-center text-center'>
             <Vercel className='text-5xl' />
             <h1 className='mt-4'>

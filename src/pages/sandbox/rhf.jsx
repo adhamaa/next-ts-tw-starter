@@ -1,3 +1,4 @@
+import nProgress from 'nprogress';
 import * as React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
@@ -17,7 +18,9 @@ export default function RHFSandbox() {
   const { handleSubmit } = methods;
 
   const onSubmit = (data) => {
+    nProgress.start();
     console.log(data);
+    nProgress.done();
   };
 
   return (

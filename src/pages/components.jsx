@@ -13,9 +13,26 @@ import NextImage from '@/components/NextImage';
 import Seo from '@/components/Seo';
 import Skeleton from '@/components/Skeleton';
 
+export function getFromLocalStorage(key) {
+  if (typeof localStorage !== 'undefined') {
+    return localStorage.getItem(key);
+  }
+  return null;
+}
+export function setToLocalStorage(key, value) {
+  if (typeof localStorage !== 'undefined') {
+    return localStorage.setItem(key, value);
+  }
+  return null;
+}
+
 export default function ComponentsPage() {
-  const [mode, setMode] = React.useState('light');
-  const [color, setColor] = React.useState('sky');
+  const [mode, setMode] = React.useState(
+    () => getFromLocalStorage('mode') || 'light'
+  );
+  const [color, setColor] = React.useState(
+    () => getFromLocalStorage('color') || 'sky'
+  );
   function toggleMode() {
     return mode === 'dark' ? setMode('light') : setMode('dark');
   }

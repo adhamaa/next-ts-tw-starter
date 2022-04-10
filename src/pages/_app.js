@@ -1,12 +1,10 @@
 import { Router } from 'next/router';
+import { ThemeProvider } from 'next-themes';
 import nProgress from 'nprogress';
 import * as React from 'react';
 import { SWRConfig } from 'swr';
 
 import '@/styles/globals.css';
-// !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
-import '@/styles/colors.css';
-import 'nprogress/nprogress.css';
 
 import axiosClient from '@/lib/axios';
 
@@ -18,6 +16,7 @@ import DismissableToast from '@/components/DismissableToast';
  */
 
 // EXPANSION CHANGES: 3 lines below
+nProgress.configure({ showSpinner: false });
 Router.events.on('routeChangeStart', nProgress.start);
 Router.events.on('routeChangeError', nProgress.done);
 Router.events.on('routeChangeComplete', nProgress.done);
@@ -25,14 +24,16 @@ Router.events.on('routeChangeComplete', nProgress.done);
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <DismissableToast />
-      <SWRConfig
-        value={{
-          fetcher: (url) => axiosClient.get(url).then((res) => res.data),
-        }}
-      >
-        <Component {...pageProps} />
-      </SWRConfig>
+      <ThemeProvider attribute='class' defaultTheme='system'>
+        <DismissableToast />
+        <SWRConfig
+          value={{
+            fetcher: (url) => axiosClient.get(url).then((res) => res.data),
+          }}
+        >
+          <Component {...pageProps} />
+        </SWRConfig>
+      </ThemeProvider>
     </>
   );
 }
